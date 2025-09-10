@@ -1,7 +1,7 @@
 # Smart Meeting Summarizer
 
 > [!WARNING]
-> This repo was just created but the project was started **August 30, 2025**.
+> This repo was just created but the project was started **August 30, 2025** and is still in progress, the project is not yet done. 
 
 ## Description
 Created a smart meeting summarizer that takes important summaries from meeting audio files. 
