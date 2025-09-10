@@ -1,0 +1,23 @@
+WARNING:__main__:Exception: [Errno 2] No such file or directory: 'meeting_10'
+WARNING:__main__:Exception: [Errno 2] No such file or directory: 'meeting_10'
+DEBUG:openai._base_client:Request options: {'method': 'post', 'url': '/audio/transcriptions', 'headers': {'Content-Type': 'multipart/form-data'}, 'files': [('file', SerializationIterator(index=0, iterator=SerializationIterator(index=0, iterator=<_io.BufferedReader name='meeting_10.mp3'>)))], 'idempotency_key': 'stainless-python-retry-0312ef96-031e-4389-9e7f-af64aea34b48', 'json_data': {'model': 'gpt-4o-transcribe', 'response_format': 'text'}}
+DEBUG:openai._base_client:Sending HTTP Request: POST https://api.openai.com/v1/audio/transcriptions
+DEBUG:httpcore.connection:connect_tcp.started host='api.openai.com' port=443 local_address=None timeout=5.0 socket_options=None
+DEBUG:httpcore.connection:connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x117bd8980>
+DEBUG:httpcore.connection:start_tls.started ssl_context=<ssl.SSLContext object at 0x1115eea80> server_hostname='api.openai.com' timeout=5.0
+DEBUG:httpcore.connection:start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x117be0550>
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Tue, 12 Aug 2025 20:38:35 GMT'), (b'Content-Type', b'text/plain; charset=utf-8'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-expose-headers', b'X-Request-ID'), (b'openai-organization', b'user-etfnd4inusq16m2filafbqdg'), (b'openai-processing-ms', b'29914'), (b'openai-project', b'proj_ukmxmdaSd3SJHr77FS4dKZrj'), (b'openai-version', b'2020-10-01'), (b'x-envoy-upstream-service-time', b'32260'), (b'x-ratelimit-limit-requests', b'500'), (b'x-ratelimit-remaining-requests', b'499'), (b'x-ratelimit-reset-requests', b'120ms'), (b'x-request-id', b'req_2db167c28c434918bf67986a1c852b4c'), (b'cf-cache-status', b'DYNAMIC'), (b'Strict-Transport-Security', b'max-age=31536000; includeSubDomains; preload'), (b'X-Content-Type-Options', b'nosniff'), (b'Set-Cookie', b'_cfuvid=sHs_RjBj2.zvQwP8uLRt5fO.sn4yZUoZ1HzIBafqBdQ-1755031115649-0.0.1.1-604800000; path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), (b'Server', b'cloudflare'), (b'CF-RAY', b'96e2c61a6e8027d1-SAN'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/audio/transcriptions "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:openai._base_client:HTTP Response: POST https://api.openai.com/v1/audio/transcriptions "200 OK" Headers({'date': 'Tue, 12 Aug 2025 20:38:35 GMT', 'content-type': 'text/plain; charset=utf-8', 'transfer-encoding': 'chunked', 'connection': 'keep-alive', 'access-control-expose-headers': 'X-Request-ID', 'openai-organization': 'user-etfnd4inusq16m2filafbqdg', 'openai-processing-ms': '29914', 'openai-project': 'proj_ukmxmdaSd3SJHr77FS4dKZrj', 'openai-version': '2020-10-01', 'x-envoy-upstream-service-time': '32260', 'x-ratelimit-limit-requests': '500', 'x-ratelimit-remaining-requests': '499', 'x-ratelimit-reset-requests': '120ms', 'x-request-id': 'req_2db167c28c434918bf67986a1c852b4c', 'cf-cache-status': 'DYNAMIC', 'strict-transport-security': 'max-age=31536000; includeSubDomains; preload', 'x-content-type-options': 'nosniff', 'set-cookie': '_cfuvid=sHs_RjBj2.zvQwP8uLRt5fO.sn4yZUoZ1HzIBafqBdQ-1755031115649-0.0.1.1-604800000; path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None', 'server': 'cloudflare', 'cf-ray': '96e2c61a6e8027d1-SAN', 'content-encoding': 'gzip', 'alt-svc': 'h3=":443"; ma=86400'})
+DEBUG:openai._base_client:request_id: req_2db167c28c434918bf67986a1c852b4c
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
