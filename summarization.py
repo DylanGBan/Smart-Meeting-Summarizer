@@ -2,44 +2,48 @@ import spacy
 import speech_to_text as stt 
 
 def summarize_meeting(transcript):
-
     """
         Testing for spaCy implementation of summary aspect
     """
-
     ACTION_VERBS = ["schedule", "finalize", "collaborate", "discuss", "present", "review", "follow", "send", "work"]
+    PRONOUNS = ["this"]
     trigger_words = {}
 
     if type(transcript) is list:
         transcript = ''.join((item for item in transcript))
-
     # Stripping ' and \n from transcription (seems slow with if statement above idk why)
     transcript = transcript.replace("\n"," ")
 
     nlp = spacy.load('en_core_web_md')
-    
     doc = nlp(transcript)
-
-    ents = []
+    sentence_list = list(doc.sents)
 
     for sentence in doc.sents:
-        lemmas = {token.lemma_.lower() for token in sentence if token.pos_ == "VERB"}
+        # Gathers all the verbs in the following sentence being processed 
+        verb_lemmas = {token.lemma_.lower() for token in sentence if token.pos_ == "VERB"}
+        # Using intersection, the matching verbs and action verbs are returned
+        action_verbs = verb_lemmas.intersection(ACTION_VERBS)
 
-        # for token in sentence: 
-        #     if token.lemma_.lower() in ACTION_VERBS and token.pos_ == "VERB":
-        #         obj = " ".join(child.text for child in token.subtree)
-        #         print(f"Action: {token.lemma_} -> Object: {obj}")
+        # Gathers all pronouns in the following stence being processed
+        pronoun_lemmas = {token.lemma_.lower() for token in sentence if token.pos_ == "PRON"}
+        pronouns = pronoun_lemmas.intersection(PRONOUNS)
+        
+        for word in action_verbs:
+            if word not in trigger_words.keys():
+                trigger_words[word] = []
 
-        intersection = lemmas.intersection(ACTION_VERBS)
+            targeted_sentence = sentence.text
 
-        if intersection:
-            
-            for word in intersection:
-                trigger_words[word] = sentence.text.strip()
+            if pronouns:    
+                previous_sentence = sentence_list[sentence_list.index(sentence) - 1]
+                # Previous sentence is being combined with target sentence 
+                targeted_sentence = previous_sentence.text_with_ws + targeted_sentence
 
-
+            trigger_words[word].append(targeted_sentence)
+                
     for poi in trigger_words.keys():
         print(f"{poi.upper()}: {trigger_words[poi]}")
+        
     
         
 
