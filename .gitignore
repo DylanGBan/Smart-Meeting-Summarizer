@@ -1,6 +1,15 @@
-venv/
+.venv/
 .env
 __pycache__/
 *.mp3
 *.log
 *.txt
+!speech_to_text.py
+!summarization.py 
+old_versions/
+.vscode/
+tests/
+transformers/
+comment_summary.md
+mp3_files
+tmp_chunks/
