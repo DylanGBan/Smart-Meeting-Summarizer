@@ -1,9 +1,5 @@
 # Smart Meeting Summarizer
 
-> [!WARNING]
-> This repo was just created but the project was started **August 30, 2025** and is still in progress, the project is not yet done. 
 
 ## Description
-Created a smart meeting summarizer that takes important summaries from meeting audio files. 
-Takes in a mp3 file and then uses Whisper from OpenAI API, using moviepy to splice audio file into managable bites for Whisper to translate speech to text. 
-Then using spaCy, keywords that are said in the meeting will be displayed in built points, with relevant context. Finially using OpenAI, the full transcript is summarized.
+Developed an end-to-end meeting intelligence tool that transcribes, summarizes, and extracts actionable items from recorded discussions. The system processes .mp3 audio files through the OpenAI API for speech-to-text transcription, applies spaCy-based NLP pipelines to identify and cluster action verbs (e.g., schedule, update, review), and generates concise meeting summaries via OpenAI’s text-generation API. Demonstrates skills in Python, NLP, API integration, and automation to deliver a practical productivity tool used to turn a user's meeting into a structured summary. 
